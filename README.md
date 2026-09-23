@@ -128,13 +128,14 @@ pip install -r requirements.txt
 
 ## 🚀 6. Running the Streamlit Application
 
-To start the interactive web application locally:
+To start the interactive web application locally, we recommend running it as a Python module to avoid PATH issues:
 
 ```bash
-streamlit run app/main.py
+python -m streamlit run app/main.py
 ```
 
-Upon execution, your default web browser will open to `http://localhost:8501`.
+Upon execution, the Streamlit server will start. You can access the application locally by opening your web browser and navigating to:
+👉 **[http://localhost:8501](http://localhost:8501)**
 
 ---
 
