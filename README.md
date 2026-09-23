@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="documentation/screenshots/banner.jpg" width="800" alt="Philippine Real Estate Price Prediction Banner">
+</p>
+
 # GROUP3_ph-real-estate-price-prediction
 
 **Course & Section:** CCMACLRL - COM243ML   
@@ -7,6 +11,10 @@
 <!-- **Deployed App URL:** [https://group3-ph-real-estate.streamlit.app](https://group3-ph-real-estate.streamlit.app) -->
 
 ---
+
+<p align="center">
+  <img src="documentation/screenshots/overview.jpg" width="600" alt="Machine Learning Overview">
+</p>
 
 ## 📌 1. Project Overview & Objectives
 
