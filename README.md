@@ -174,9 +174,9 @@ This project was developed for the Machine Learning course under the instruction
 
 | Profile Picture | Name |
 | :---: | :--- |
-| <img src="https://github.com/ghost.png" width="50" height="50" style="border-radius:50%"> | **Ezekiel Christian Alcantara** |
+| <img src="https://github.com/ezekielchristianalcantara-pixel" width="50" height="50" style="border-radius:50%"> | **Ezekiel Christian Alcantara** |
 | <img src="https://github.com/ghost.png" width="50" height="50" style="border-radius:50%"> | **Genesis Navarro** |
 | <img src="https://github.com/ghost.png" width="50" height="50" style="border-radius:50%"> | **Christian Jacob Suntay** |
-| <img src="https://github.com/ghost.png" width="50" height="50" style="border-radius:50%"> | **Jay Arre Talosig** |
+| <img src="https://github.com/flexyledger" width="50" height="50" style="border-radius:50%"> | **Jay Arre Talosig** |
 
 > **Note:** To display your actual GitHub profile pictures, edit the `README.md` and replace `ghost` in `https://github.com/ghost.png` with your actual GitHub usernames (e.g., `https://github.com/yourusername.png`).
