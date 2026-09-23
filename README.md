@@ -1,3 +1,5 @@
+![Philippine Real Estate Price Prediction Banner](documentation/screenshots/banner.jpg)
+
 # GROUP3_ph-real-estate-price-prediction
 
 **Course & Section:** CCMACLRL - COM243ML   
@@ -8,6 +10,8 @@
 
 ---
 
+![Machine Learning Overview](documentation/screenshots/overview.jpg)
+
 ## 📌 1. Project Overview & Objectives
 
 This project develops an end-to-end Machine Learning pipeline and interactive web application to estimate property prices across the Philippines. Grounded in real estate data scraped from [Lamudi.com.ph](https://www.lamudi.com.ph) (`PH_houses_v2.csv`), the system provides data-driven valuation estimates to aid home buyers, property investors, and real estate analysts in making informed decisions.
@@ -16,6 +20,11 @@ This project develops an end-to-end Machine Learning pipeline and interactive we
 * **Exploratory Data Analysis (EDA):** Analyze spatial distributions, structural features (bedrooms, bathrooms, area), and price variance across Philippine regions.
 * **Evidence-Based Model Comparison:** Train and evaluate **three distinct traditional machine learning algorithms** under strict fair experimental conditions (80/20 train-test split, 5-fold cross-validation).
 * **Interactive Deployment:** Integrate the top-performing model into a functional Streamlit application that accepts user feature inputs and returns validated property price estimations.
+
+### 📈 Model Performance Showcase
+The Random Forest model achieved strong predictive accuracy across the market segment. Below is the residual error distribution on the held-out test set:
+
+![Residuals Plot](documentation/screenshots/residuals.png)
 
 ---
 
