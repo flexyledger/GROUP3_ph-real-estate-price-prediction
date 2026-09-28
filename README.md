@@ -7,7 +7,7 @@
 **Course & Section:** CCMACLRL - COM243ML   
 **Course Instructor:** Professor Ken Oliver Caparros  
 **Group Name:** GROUP3  
-**Project Title:** Philippine Real Estate Property Valuation & Price Prediction Using Machine Learning  
+**Project Title:** Property Retail Calculator - Residential Real Estate Price Estimation Using Structure And Geographic Variables  
 <!-- **Deployed App URL:** [https://group3-ph-real-estate.streamlit.app](https://group3-ph-real-estate.streamlit.app) -->
 
 ---
