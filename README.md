@@ -4,11 +4,10 @@
 
 # GROUP3_ph-real-estate-price-prediction
 
-**Course & Section:** CCMACLRL - COM243ML   
+**Course & Section:** CCMACLRL - COM243ML  
 **Course Instructor:** Professor Ken Oliver Caparros  
 **Group Name:** GROUP3  
 **Project Title:** Property Retail Calculator - Residential Real Estate Price Estimation Using Structure And Geographic Variables  
-<!-- **Deployed App URL:** [https://group3-ph-real-estate.streamlit.app](https://group3-ph-real-estate.streamlit.app) -->
 
 ---
 
@@ -18,12 +17,13 @@
 
 ## 📌 1. Project Overview & Objectives
 
-This project develops an end-to-end Machine Learning pipeline and interactive web application to estimate property prices across the Philippines. Grounded in real estate data scraped from [Lamudi.com.ph](https://www.lamudi.com.ph) (`PH_houses_v2.csv`), the system provides data-driven valuation estimates to aid home buyers, property investors, and real estate analysts in making informed decisions.
+This project develops an end-to-end Machine Learning pipeline, full-suite financial calculator, and interactive multi-platform web applications to estimate and analyze residential property retail prices across the Philippines. Grounded in real estate data scraped from [Lamudi.com.ph](https://www.lamudi.com.ph) (`PH_houses_v2.csv`), the system provides data-driven valuations, mortgage financing schedules, and closing cost breakdowns to aid home buyers, property investors, and real estate professionals.
 
 ### Key Objectives:
-* **Exploratory Data Analysis (EDA):** Analyze spatial distributions, structural features (bedrooms, bathrooms, area), and price variance across Philippine regions.
+* **Exploratory Data Analysis (EDA):** Analyze spatial distributions, structural features (bedrooms, bathrooms, floor area, land area), and price variance across Philippine provinces and cities.
 * **Evidence-Based Model Comparison:** Train and evaluate **three distinct traditional machine learning algorithms** under strict fair experimental conditions (80/20 train-test split, 5-fold cross-validation).
-* **Interactive Deployment:** Integrate the top-performing model into a functional Streamlit application that accepts user feature inputs and returns validated property price estimations.
+* **Property Retail & Financing Calculator:** Combine Random Forest ML valuations with dynamic bank mortgage amortization, Philippine closing fee schedules (DST, Transfer Tax, Registration), and rental investment yield analysis.
+* **Dual Deployment Architecture:** Provide both an interactive Streamlit application and a dedicated, responsive static frontend preconfigured for global deployment on **Netlify**, backed by an optional FastAPI cloud microservice.
 
 ---
 
@@ -33,76 +33,116 @@ The repository strictly follows the required course submission format (`GROUPNAM
 
 ```text
 GROUP3_ph-real-estate-price-prediction/
-├── app/                        # Streamlit web application
-│   ├── main.py                 # Application entry point & UI layout
-│   └── utils.py                # Input validation & formatting helpers
+├── app/                        # Python Application & API Backend
+│   ├── main.py                 # Streamlit web application & interactive fintech dashboard
+│   ├── utils.py                # Validation, mortgage, closing costs & investment helpers
+│   └── api.py                  # Production FastAPI ML service (CORS enabled for Netlify)
+├── frontend/                   # Static Web Application for Netlify Deployment
+│   ├── index.html              # Responsive HTML5 semantic interface
+│   ├── style.css               # Luxury dark fintech CSS (mobile & multi-monitor adaptive)
+│   ├── app.js                  # Client valuation engine, financial logic & Leaflet map
+│   └── data/
+│       └── locations.json      # Precomputed 111 Philippine locations & pricing stats
+├── netlify.toml                # Netlify deployment configuration (publish = "frontend")
+├── render.yaml                 # 1-Click Render cloud deployment configuration
+├── Procfile                    # Container process specification (Railway / Koyeb)
 ├── data/                       # Dataset package
-│   ├── original/               # Raw PH_houses_v2.csv & provenance note
-│   └── processed/              # Cleaned dataset & feature engineered files
+│   ├── original/               # Raw PH_houses_v2.csv & provenance documentation
+│   └── processed/              # Cleaned dataset (cleaned_data.csv)
 ├── notebooks/                  # Interactive Jupyter Notebooks
-│   ├── 01_eda.ipynb            # Exploratory Data Analysis & visualizations
-│   ├── 02_preprocessing.ipynb  # Data cleaning, encoding, and scaling
-│   └── 03_model_training.ipynb # 3-model comparison, CV & test set evaluation
-├── src/                        # Reusable modular code
-│   ├── preprocessing.py        # Data pipeline transformer
-│   └── modeling.py             # Model training and evaluation logic
-├── models/                     # Serialized model & pipeline outputs
-│   ├── best_model.pkl          # Saved trained Random Forest Regressor model
-│   └── preprocessor.pkl       # Saved feature transformation pipeline
-├── documentation/              # Technical documentation & visuals
-│   ├── user_guide.pdf          # Application user guide
-│   └── screenshots/            # EDA plots and app UI screenshots
-├── paper/                      # Final academic research paper
+│   ├── 01_eda.ipynb            # Exploratory Data Analysis & spatial distributions
+│   ├── 02_preprocessing.ipynb  # Cleaning, target encoding, and feature scaling
+│   └── 03_model_training.ipynb # 3-model CV comparison, tuning, and evaluation
+├── src/                        # Reusable modular pipeline code
+│   ├── preprocessing.py        # Data cleaning and ColumnTransformer pipeline
+│   └── modeling.py             # Cross-validation, grid search, and evaluation logic
+├── models/                     # Serialized artifacts
+│   ├── best_model.pkl          # Trained Random Forest Regressor model (selected)
+│   └── preprocessor.pkl       # Fitted feature transformation pipeline
+├── documentation/              # Technical guides & visual assets
+│   ├── DEPLOYMENT.md           # Netlify, Render, and Streamlit deployment guide
+│   ├── user_guide.md           # Application user instructions
+│   └── screenshots/            # Visuals, charts, and diagrams
+├── paper/                      # Academic research paper deliverables
 │   ├── GROUP3_Research_Paper.pdf
 │   └── GROUP3_Research_Paper.docx
-├── README.md                   # Technical setup and run instructions
-└── requirements.txt            # Software dependencies
+├── README.md                   # Project documentation and technical setup
+└── requirements.txt            # Python software dependencies
 ```
 
 ---
 
 ## 📊 3. Dataset Package & Provenance
 
-* **Source:** Kaggle — *Philippine Real Estate* dataset by Arlo Blanco (scraped via BeautifulSoup from Lamudi Philippines).
+* **Source:** Kaggle — *Philippine Real Estate* dataset by Arlo Blanco (scraped from Lamudi Philippines).
 * **License:** CC0: Public Domain
 * **Unit of Analysis:** Individual residential property listings in the Philippines.
-* **Records:** ~1,255 unique listings across various provinces and cities.
+* **Records:** ~1,255 unique validated listings across major Philippine cities and provinces.
 
 ### Features & Data Dictionary
 
-| Feature Variable | Data Type | Description | Units / Format |
-| :--- | :--- | :--- | :--- |
-| `Location` | Categorical | Barangay / City / Province location | Name string |
-| `Bedrooms` | Numerical | Number of bedrooms | Count |
-| `Bath` | Numerical | Number of bathrooms | Count |
-| `Floor_area (sqm)`| Numerical | Total interior floor area | Square meters ($\text{m}^2$) |
-| `Land_area (sqm)` | Numerical | Total land or lot area | Square meters ($\text{m}^2$) |
-| `Latitude` | Numerical | Geographical latitude coordinate | Decimal degrees |
-| `Longitude` | Numerical | Geographical longitude coordinate | Decimal degrees |
-| `Price (PHP)` | Numerical (**Target**) | Listing price in Philippine Peso | PHP ($\text{₱}$) |
+| Feature Variable | Data Type | Description | Units / Format | Model Importance |
+| :--- | :--- | :--- | :--- | :--- |
+| `Location` | Categorical | Barangay / City / Province location | Name string | **62.06%** (Target Encoded) |
+| `Floor_area (sqm)`| Numerical | Total interior floor space | Square meters ($\text{m}^2$) | **24.78%** |
+| `Land_area (sqm)` | Numerical | Total land or lot area (0 for condos) | Square meters ($\text{m}^2$) | **7.74%** |
+| `Longitude` | Numerical | Geographical longitude coordinate | Decimal degrees (°E) | **2.52%** |
+| `Latitude` | Numerical | Geographical latitude coordinate | Decimal degrees (°N) | **1.39%** |
+| `Bath` | Numerical | Number of bathrooms | Count | **1.00%** |
+| `Bedrooms` | Numerical | Number of bedrooms | Count | **0.52%** |
+| `Price (PHP)` | Numerical (**Target**) | Listing retail price in Philippine Peso | PHP ($\text{₱}$) | *Target variable (`log1p`)* |
 
 ---
 
 ## ⚙️ 4. Machine Learning Methodology
 
 ### Permitted Algorithms Compared
-In accordance with course guidelines prohibiting deep learning and AutoML, **three distinct traditional algorithms** were evaluated:
+In accordance with course guidelines prohibiting deep learning and AutoML, **three distinct traditional algorithms** were compared under fair experimental conditions:
 
 1. **Linear Regression (Baseline Parametric Model):** Establishes the linear benchmark for structural features against price.
-2. **Decision Tree Regressor (Non-Linear Single Tree):** Captures non-linear relationships and feature interactions (e.g., location vs. floor area).
-3. **Random Forest Regressor (Ensemble Method - Selected Model):** Reduces variance through bagging, handling geospatial coordinates and skewed real estate values effectively.
+2. **Decision Tree Regressor (Non-Linear Single Tree):** Captures non-linear feature interactions but exhibits higher variance.
+3. **Random Forest Regressor (Ensemble Method - Selected Model):** Reduces variance through bagging, handling skewed real estate distributions and localized spatial coordinates effectively.
 
 ### Experimental Design & Fair Conditions
 * **Data Split:** 80% Training Set / 20% Untouched Test Set (`random_state=42`).
-* **Validation Strategy:** 5-Fold Cross-Validation evaluated strictly on the training set.
-* **Primary Metric:** **Root Mean Squared Error (RMSE)** (penalizes large pricing errors on high-value properties).
-* **Supporting Metrics:** Mean Absolute Error (MAE), Coefficient of Determination ($R^2$).
+* **Validation Strategy:** 5-Fold Cross-Validation evaluated strictly on the training partition.
+* **Data Leakage Prevention:** Preprocessing transformers (imputation, scaling, target encoding) fit strictly on training splits.
+* **Evaluation Metrics:** **Root Mean Squared Error (RMSE)** (primary), Mean Absolute Error (MAE), and Coefficient of Determination ($R^2$).
 
 ---
 
-## 💻 5. Installation & Setup Instructions
+## 🧮 5. Key Application & Calculator Features
 
-Follow these step-by-step instructions to set up and run the repository locally.
+### A. Live Market Valuation & Unit Rates
+* Real-time automated inference in Philippine Pesos ($\text{₱}$).
+* Empirical confidence interval ($\pm 15\%$) accounting for market variance.
+* Unit rate breakdowns: Floor Price per $\text{m}^2$ and Land Price per $\text{m}^2$.
+
+### B. Retail Mortgage Financing Calculator
+* **Customizable Parameters:** Down Payment (10% to 50%), Loan Tenure (5 to 30 years), and Bank Interest Rate (4.0% to 12.0%).
+* **Amortization Breakdown:** Monthly Amortization, Principal Borrowed, Total Interest Paid, and Total Repayment.
+* **Affordability Check:** Minimum Gross Monthly Income requirement based on standard Philippine bank 30% debt-to-income thresholds.
+
+### C. Philippine Acquisition & Closing Costs Breakdown
+* **Documentary Stamp Tax (DST):** 1.5% of purchase price.
+* **Local Transfer Tax:** 0.75% of purchase price.
+* **LRA Registration Fee:** 0.25% of purchase price.
+* **Notarial & Documentation Fees:** 1.0% of purchase price.
+* **Total Cash Out-of-Pocket:** Computes total immediate funds required (Down Payment + Closing Taxes/Fees).
+
+### D. Rental Investment & Return Metrics
+* Configurable gross rental yield target (default 6.5%).
+* Estimated Monthly Gross Rent, Annual Gross Rent, and Capital Payback Horizon (Years).
+* Projected net monthly cash flow comparing rental revenue against mortgage amortization.
+
+### E. Interactive Visualizations & Mapping
+* **Random Forest Feature Importance:** Vega-Lite / Altair and CSS charts displaying empirical feature weights.
+* **Interactive Geospatial Mapping:** 3D Pydeck / Leaflet maps pinpointing property coordinates against local listings.
+* **Neighborhood Benchmark:** Dynamic price distribution comparing the current property against the minimum, median, and maximum in that location.
+
+---
+
+## 💻 6. Installation & Local Setup
 
 ### Prerequisites
 * Python 3.10 or higher
@@ -110,7 +150,7 @@ Follow these step-by-step instructions to set up and run the repository locally.
 
 ### Step 1: Clone the Repository
 ```bash
-git clone https://github.com/YourOrganization/GROUP3_ph-real-estate-price-prediction.git
+git clone https://github.com/flexyledger/GROUP3_ph-real-estate-price-prediction.git
 cd GROUP3_ph-real-estate-price-prediction
 ```
 
@@ -134,39 +174,35 @@ pip install -r requirements.txt
 
 ---
 
-## 🚀 6. Running the Streamlit Application
+## 🚀 7. Running the Applications Locally
 
-To start the interactive web application locally:
-
+### Option A: Run the Streamlit Application
 ```bash
 streamlit run app/main.py
 ```
+Opens in your browser at `http://localhost:8501`.
 
-Upon execution, your default web browser will open to `http://localhost:8501`.
+### Option B: Run the FastAPI ML Backend
+```bash
+uvicorn app.api:app --host 0.0.0.0 --port 8000 --reload
+```
+API documentation available at `http://localhost:8000/docs`.
+
+### Option C: Serve the Netlify Frontend Locally
+```bash
+python -m http.server 3000 --directory frontend
+```
+Opens in your browser at `http://localhost:3000`.
 
 ---
 
-## 📱 7. Application Guide & User Input Validation
+## 🌐 8. Deployment Setup
 
-The Streamlit interface enables interactive property valuation through the following components:
+Comprehensive instructions for deploying all components can be found in [documentation/DEPLOYMENT.md](documentation/DEPLOYMENT.md):
 
-1. **Property Feature Selection:** Users input location, floor area ($\text{m}^2$), land area ($\text{m}^2$), number of bedrooms, and bathrooms.
-2. **Input Validation:**
-   * Range bounds check (e.g., non-negative floor area, valid Philippine coordinate boundaries).
-   * Missing value indicators handled safely without app crashing.
-3. **Valuation Output:** Displays the predicted price in Philippine Pesos ($\text{₱}$) along with confidence ranges based on residual analysis.
-
----
-
-## ⚠️ 8. Model Limitations & Troubleshooting
-
-### Known Model Limitations
-* **Geographic Coverage:** High density in Metro Manila and major urban hubs (e.g., Pasig, Makati, Davao, Cebu); performance may degrade in rural areas with sparse listings.
-* **Outlier Sensitivity:** Extreme luxury estates exceeding $\text{₱}100\text{M}$ are clipped during preprocessing to preserve main-market model calibration.
-
-### Common Troubleshooting Steps
-* **`ModuleNotFoundError`:** Ensure your virtual environment is active (`source venv/bin/activate`) before running Streamlit.
-* **File Path Errors:** Run commands from the root directory (`GROUP3_ph-real-estate-price-prediction/`) to ensure relative paths resolve correctly.
+* **Netlify (Frontend):** Preconfigured with `netlify.toml` (`publish = "frontend"`). Deploy in seconds by connecting your GitHub repository or dropping the `frontend/` directory into [Netlify Drop](https://app.netlify.com/drop).
+* **Render / Railway (ML API):** Preconfigured with `render.yaml` and `Procfile` for 1-click cloud deployment of `app/api.py`.
+* **Streamlit Community Cloud:** Deploy `app/main.py` directly from GitHub.
 
 ---
 
@@ -174,17 +210,17 @@ The Streamlit interface enables interactive property valuation through the follo
 
 This project was developed for the Machine Learning course under the instruction of **Professor Ken Oliver Caparros**. All student members of **GROUP3** jointly declare authorship and technical contribution in accordance with university academic integrity policies.
 
-* **Course Instructor:** Professor Ken Oliver Caparros
-* **Group Name:** GROUP3
-* **Repository Ownership:** Jointly maintained by the National University of the Philippines and GROUP3 members.
+* **Course Instructor:** Professor Ken Oliver Caparros  
+* **Group Name:** GROUP3  
+* **Repository Ownership:** Jointly maintained by the National University of the Philippines and GROUP3 members.  
 
 ### Team Members
 
-| Profile Picture | Name |
-| :---: | :--- |
-| <img src="https://github.com/ezekielchristianalcantara-pixel.png" width="50" height="50" style="border-radius:50%"> | **Ezekiel Christian Alcantara** |
-| <img src="https://github.com/ghost.png" width="50" height="50" style="border-radius:50%"> | **Genesis Navarro** |
-| <img src="https://github.com/ghost.png" width="50" height="50" style="border-radius:50%"> | **Christian Jacob Suntay** |
-| <img src="https://github.com/flexyledger.png" width="50" height="50" style="border-radius:50%"> | **Jay Arre Talosig** |
+| Profile Picture | Name | Role & Contribution |
+| :---: | :--- | :--- |
+| <img src="https://github.com/ezekielchristianalcantara-pixel.png" width="50" height="50" style="border-radius:50%"> | **Ezekiel Christian Alcantara** | Data Preprocessing Pipeline & Feature Engineering |
+| <img src="https://github.com/ghost.png" width="50" height="50" style="border-radius:50%"> | **Genesis Navarro** | Exploratory Data Analysis & Statistical Distributions |
+| <img src="https://github.com/ghost.png" width="50" height="50" style="border-radius:50%"> | **Christian Jacob Suntay** | 3-Model Comparison, 5-Fold CV & Hyperparameter Tuning |
+| <img src="https://github.com/flexyledger.png" width="50" height="50" style="border-radius:50%"> | **Jay Arre Talosig** | Full-Stack Deployment, Financial Calculators & UI Architecture |
 
-> **Note:** To display your actual GitHub profile pictures, edit the `README.md` and replace `ghost` in `https://github.com/ghost.png` with your actual GitHub usernames (e.g., `https://github.com/yourusername.png`).
+> **Note:** To display actual profile pictures for all members, replace `ghost` in `https://github.com/ghost.png` with the respective member's GitHub username.
