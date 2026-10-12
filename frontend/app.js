@@ -423,7 +423,7 @@ function initApiSettings() {
   }
 
   btnToggle.addEventListener('click', () => {
-    panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
+    panel.classList.toggle('open');
   });
 
   btnTest.addEventListener('click', async () => {

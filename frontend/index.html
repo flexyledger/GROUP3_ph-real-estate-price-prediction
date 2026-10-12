@@ -42,7 +42,7 @@
         </button>
       </div>
 
-      <div class="api-settings-panel" id="apiSettingsPanel" style="display: none;">
+      <div class="api-settings-panel" id="apiSettingsPanel">
         <label for="backendApiUrl" class="input-label">Optional Cloud ML API Endpoint (FastAPI / Render):</label>
         <div class="api-input-group">
           <input type="url" id="backendApiUrl" placeholder="https://your-api.onrender.com" value="" />
@@ -186,7 +186,8 @@
                 <span>Down Payment (%)</span>
                 <span class="slider-value" id="valDownPctDisplay">20%</span>
               </div>
-              <input type="range" id="sliderDownPct" min="10" max="50" step="5" value="20" class="range-slider" />
+              <label for="sliderDownPct" class="sr-only">Down Payment Percentage</label>
+              <input type="range" id="sliderDownPct" name="sliderDownPct" title="Down Payment Percentage" aria-label="Down Payment Percentage" min="10" max="50" step="5" value="20" class="range-slider" />
             </div>
 
             <div class="slider-control">
@@ -194,7 +195,8 @@
                 <span>Loan Tenure (Years)</span>
                 <span class="slider-value" id="valTenureDisplay">20 Years</span>
               </div>
-              <input type="range" id="sliderTenure" min="5" max="30" step="1" value="20" class="range-slider" />
+              <label for="sliderTenure" class="sr-only">Loan Tenure in Years</label>
+              <input type="range" id="sliderTenure" name="sliderTenure" title="Loan Tenure in Years" aria-label="Loan Tenure in Years" min="5" max="30" step="1" value="20" class="range-slider" />
             </div>
 
             <div class="slider-control">
@@ -202,7 +204,8 @@
                 <span>Interest Rate (%)</span>
                 <span class="slider-value" id="valInterestDisplay">7.00%</span>
               </div>
-              <input type="range" id="sliderInterest" min="4" max="12" step="0.25" value="7.0" class="range-slider" />
+              <label for="sliderInterest" class="sr-only">Annual Bank Interest Rate Percentage</label>
+              <input type="range" id="sliderInterest" name="sliderInterest" title="Annual Bank Interest Rate Percentage" aria-label="Annual Bank Interest Rate Percentage" min="4" max="12" step="0.25" value="7.0" class="range-slider" />
             </div>
 
             <div class="slider-control">
@@ -210,7 +213,8 @@
                 <span>Gross Rental Yield (%)</span>
                 <span class="slider-value" id="valYieldDisplay">6.50%</span>
               </div>
-              <input type="range" id="sliderYield" min="3" max="12" step="0.5" value="6.5" class="range-slider" />
+              <label for="sliderYield" class="sr-only">Estimated Gross Rental Yield Percentage</label>
+              <input type="range" id="sliderYield" name="sliderYield" title="Estimated Gross Rental Yield Percentage" aria-label="Estimated Gross Rental Yield Percentage" min="3" max="12" step="0.5" value="6.5" class="range-slider" />
             </div>
           </div>
 
@@ -300,9 +304,9 @@
           <div class="alloc-section">
             <h4 class="alloc-title">📊 Capital Allocation Breakdown</h4>
             <div class="alloc-progress-bar">
-              <div class="bar-segment bar-principal" id="barPrincipal" style="width: 77%;"></div>
-              <div class="bar-segment bar-down" id="barDown" style="width: 19%;"></div>
-              <div class="bar-segment bar-closing" id="barClosing" style="width: 4%;"></div>
+              <div class="bar-segment bar-principal" id="barPrincipal"></div>
+              <div class="bar-segment bar-down" id="barDown"></div>
+              <div class="bar-segment bar-closing" id="barClosing"></div>
             </div>
             <div class="alloc-legend">
               <span class="legend-item"><span class="dot dot-cyan"></span> Loan Principal (<span id="pctPrincipal">77%</span>)</span>
@@ -322,37 +326,37 @@
           <div class="feature-chart-container">
             <div class="chart-row">
               <div class="chart-label">Location (Target Encoded)</div>
-              <div class="chart-bar-wrap"><div class="chart-bar" style="width: 62.06%; background: #38bdf8;"></div></div>
+              <div class="chart-bar-wrap"><div class="chart-bar bar-feat-location"></div></div>
               <div class="chart-pct">62.06%</div>
             </div>
             <div class="chart-row">
               <div class="chart-label">Floor Area (m²)</div>
-              <div class="chart-bar-wrap"><div class="chart-bar" style="width: 24.78%; background: #0284c7;"></div></div>
+              <div class="chart-bar-wrap"><div class="chart-bar bar-feat-floor"></div></div>
               <div class="chart-pct">24.78%</div>
             </div>
             <div class="chart-row">
               <div class="chart-label">Land Area (m²)</div>
-              <div class="chart-bar-wrap"><div class="chart-bar" style="width: 7.74%; background: #0ea5e9;"></div></div>
+              <div class="chart-bar-wrap"><div class="chart-bar bar-feat-land"></div></div>
               <div class="chart-pct">7.74%</div>
             </div>
             <div class="chart-row">
               <div class="chart-label">Longitude (°E Coordinates)</div>
-              <div class="chart-bar-wrap"><div class="chart-bar" style="width: 2.52%; background: #38bdf8;"></div></div>
+              <div class="chart-bar-wrap"><div class="chart-bar bar-feat-lon"></div></div>
               <div class="chart-pct">2.52%</div>
             </div>
             <div class="chart-row">
               <div class="chart-label">Latitude (°N Coordinates)</div>
-              <div class="chart-bar-wrap"><div class="chart-bar" style="width: 1.39%; background: #7dd3fc;"></div></div>
+              <div class="chart-bar-wrap"><div class="chart-bar bar-feat-lat"></div></div>
               <div class="chart-pct">1.39%</div>
             </div>
             <div class="chart-row">
               <div class="chart-label">Bathrooms Count</div>
-              <div class="chart-bar-wrap"><div class="chart-bar" style="width: 1.00%; background: #bae6fd;"></div></div>
+              <div class="chart-bar-wrap"><div class="chart-bar bar-feat-bath"></div></div>
               <div class="chart-pct">1.00%</div>
             </div>
             <div class="chart-row">
               <div class="chart-label">Bedrooms Count</div>
-              <div class="chart-bar-wrap"><div class="chart-bar" style="width: 0.52%; background: #e0f2fe;"></div></div>
+              <div class="chart-bar-wrap"><div class="chart-bar bar-feat-bed"></div></div>
               <div class="chart-pct">0.52%</div>
             </div>
           </div>
