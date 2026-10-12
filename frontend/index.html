@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Property Retail Calculator | Philippine Real Estate Price Estimation</title>
+  <meta name="description" content="Property Retail Calculator - Residential Real Estate Price Estimation Using Structure And Geographic Variables with Machine Learning (Random Forest Regressor)." />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Leaflet Map CSS for interactive spatial maps -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+  <!-- App Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header Hero -->
+    <header class="hero-section">
+      <div class="badge-container">
+        <span class="badge badge-accent">🏢 GROUP3</span>
+        <span class="badge badge-emerald">🌲 Random Forest Regressor</span>
+        <span class="badge">📊 Lamudi PH Real Estate Dataset</span>
+        <span class="badge">🎯 CCMACLRL - COM243ML</span>
+      </div>
+      <h1 class="hero-title">Property Retail Calculator</h1>
+      <p class="hero-subtitle">Residential Real Estate Price Estimation Using Structure And Geographic Variables</p>
+      
+      <!-- API Connection Bar -->
+      <div class="api-status-bar">
+        <div class="api-status-indicator">
+          <span class="status-dot" id="apiStatusDot"></span>
+          <span id="apiStatusText">Engine: Built-in Client ML Engine</span>
+        </div>
+        <button type="button" class="btn-api-toggle" id="btnToggleApiSettings" aria-label="Configure ML API Endpoint">
+          ⚙️ Backend API Settings
+        </button>
+      </div>
+
+      <div class="api-settings-panel" id="apiSettingsPanel" style="display: none;">
+        <label for="backendApiUrl" class="input-label">Optional Cloud ML API Endpoint (FastAPI / Render):</label>
+        <div class="api-input-group">
+          <input type="url" id="backendApiUrl" placeholder="https://your-api.onrender.com" value="" />
+          <button type="button" id="btnTestApi" class="btn-primary">Connect</button>
+          <button type="button" id="btnResetApi" class="btn-secondary">Use Client Mode</button>
+        </div>
+        <p class="api-hint">Deploy <code>app/api.py</code> to Render or Railway to enable full cloud inference, or leave blank to use the client engine.</p>
+      </div>
+    </header>
+
+    <!-- Main Layout (Split on Desktop, Stacked on Mobile/Portrait) -->
+    <main class="main-layout">
+      <!-- Left Column: Inputs Form -->
+      <section class="calc-panel input-panel">
+        <div class="panel-header">
+          <h2 class="panel-title">📍 Structural & Geographic Variables</h2>
+          <span class="panel-tag">Feature Spec</span>
+        </div>
+
+        <form id="propertyForm" onsubmit="return false;">
+          <div class="form-group">
+            <label for="presetSelect" class="input-label">⚡ Quick Property Profile Preset</label>
+            <select id="presetSelect" class="form-select">
+              <option value="custom">Custom Setup</option>
+              <option value="condo-2br">Standard 2BR Urban Condo (55 m²)</option>
+              <option value="condo-3br">Spacious 3BR Executive Condo (110 m²)</option>
+              <option value="townhouse" selected>Suburban Family Townhouse (120 m² / Lot 100 m²)</option>
+              <option value="house-lot">Single Detached House & Lot (220 m² / Lot 250 m²)</option>
+              <option value="luxury-estate">Luxury Subdivision Estate (450 m² / Lot 600 m²)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="locationSelect" class="input-label">Location (Barangay, City / Municipality)</label>
+            <select id="locationSelect" class="form-select">
+              <option value="">Loading locations...</option>
+            </select>
+            <span class="field-hint">Primary geographic anchor for Target Encoding and local baseline valuation.</span>
+          </div>
+
+          <div class="grid-2">
+            <div class="form-group">
+              <label for="latitudeInput" class="input-label">Latitude (°N)</label>
+              <input type="number" id="latitudeInput" step="0.000001" min="4.5" max="21.5" value="14.588716" class="form-input" required />
+            </div>
+            <div class="form-group">
+              <label for="longitudeInput" class="input-label">Longitude (°E)</label>
+              <input type="number" id="longitudeInput" step="0.000001" min="116.0" max="127.0" value="121.060009" class="form-input" required />
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="form-group">
+              <label for="bedroomsInput" class="input-label">Bedrooms</label>
+              <input type="number" id="bedroomsInput" min="1" max="20" value="3" class="form-input" required />
+            </div>
+            <div class="form-group">
+              <label for="bathroomsInput" class="input-label">Bathrooms</label>
+              <input type="number" id="bathroomsInput" min="1" max="20" value="2" class="form-input" required />
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="form-group">
+              <label for="floorAreaInput" class="input-label">Floor Area (m²)</label>
+              <input type="number" id="floorAreaInput" min="5" max="5000" step="5" value="120" class="form-input" required />
+            </div>
+            <div class="form-group">
+              <label for="landAreaInput" class="input-label">Land Area (m²)</label>
+              <input type="number" id="landAreaInput" min="0" max="10000" step="10" value="100" class="form-input" />
+              <span class="field-hint">Enter 0 for high-rise condominium units.</span>
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <!-- Right Column: Live Valuation Output -->
+      <section class="calc-panel valuation-panel">
+        <div class="panel-header">
+          <h2 class="panel-title">🏷️ Retail Price Valuation Result</h2>
+          <span class="sync-indicator">● Live Synced</span>
+        </div>
+
+        <div class="valuation-display">
+          <span class="valuation-label">Estimated Retail Market Price</span>
+          <div class="valuation-value" id="valEstimatedPrice">₱ 14,543,438.44</div>
+          
+          <div class="confidence-box">
+            <span class="confidence-label">Confidence Range (±15%):</span>
+            <span class="confidence-range" id="valConfidenceRange">₱ 12,361,922.67 - ₱ 16,724,954.21</span>
+          </div>
+
+          <div class="metric-rates-grid">
+            <div class="rate-card">
+              <span class="rate-label">Floor Rate / m²</span>
+              <span class="rate-value" id="valFloorRate">₱ 121,195.32 / m²</span>
+            </div>
+            <div class="rate-card">
+              <span class="rate-label">Land Rate / m²</span>
+              <span class="rate-value" id="valLandRate">₱ 145,434.38 / m²</span>
+            </div>
+          </div>
+
+          <div class="quick-summary-box">
+            <div class="summary-item">
+              <span class="summary-lbl">Est. 20% Down Payment:</span>
+              <span class="summary-val" id="valQuickDown">₱ 2,908,687.69</span>
+            </div>
+            <div class="summary-item">
+              <span class="summary-lbl">Est. Monthly Mortgage (20y):</span>
+              <span class="summary-val highlight" id="valQuickMortgage">₱ 90,215.14 / mo</span>
+            </div>
+            <div class="summary-item">
+              <span class="summary-lbl">Est. Monthly Gross Rent:</span>
+              <span class="summary-val highlight-green" id="valQuickRent">₱ 78,776.96 / mo</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Deep-Dive Interactive Tabs -->
+    <section class="tabs-container">
+      <nav class="tabs-nav" role="tablist">
+        <button type="button" class="tab-btn active" data-tab="tab-calc" role="tab" id="tabBtnCalc">🧮 Retail & Mortgage Calculator</button>
+        <button type="button" class="tab-btn" data-tab="tab-model" role="tab" id="tabBtnModel">🌲 Random Forest Feature Importance</button>
+        <button type="button" class="tab-btn" data-tab="tab-geo" role="tab" id="tabBtnGeo">🗺️ Geospatial & Neighborhood Benchmark</button>
+        <button type="button" class="tab-btn" data-tab="tab-specs" role="tab" id="tabBtnSpecs">📋 Academic Specs & Authors</button>
+      </nav>
+
+      <!-- TAB 1: RETAIL & MORTGAGE FINANCING -->
+      <div class="tab-content active" id="tab-calc" role="tabpanel">
+        <div class="card-inner">
+          <h3 class="tab-heading">💰 Philippine Real Estate Retail Financing & Investment Breakdown</h3>
+          <p class="tab-desc">Configure retail mortgage financing parameters, mandatory Philippine acquisition transfer fees (DST, Transfer Tax, LRA), and projected rental investment yields.</p>
+
+          <!-- Calculator Sliders -->
+          <div class="slider-controls-grid">
+            <div class="slider-control">
+              <div class="slider-header">
+                <span>Down Payment (%)</span>
+                <span class="slider-value" id="valDownPctDisplay">20%</span>
+              </div>
+              <input type="range" id="sliderDownPct" min="10" max="50" step="5" value="20" class="range-slider" />
+            </div>
+
+            <div class="slider-control">
+              <div class="slider-header">
+                <span>Loan Tenure (Years)</span>
+                <span class="slider-value" id="valTenureDisplay">20 Years</span>
+              </div>
+              <input type="range" id="sliderTenure" min="5" max="30" step="1" value="20" class="range-slider" />
+            </div>
+
+            <div class="slider-control">
+              <div class="slider-header">
+                <span>Interest Rate (%)</span>
+                <span class="slider-value" id="valInterestDisplay">7.00%</span>
+              </div>
+              <input type="range" id="sliderInterest" min="4" max="12" step="0.25" value="7.0" class="range-slider" />
+            </div>
+
+            <div class="slider-control">
+              <div class="slider-header">
+                <span>Gross Rental Yield (%)</span>
+                <span class="slider-value" id="valYieldDisplay">6.50%</span>
+              </div>
+              <input type="range" id="sliderYield" min="3" max="12" step="0.5" value="6.5" class="range-slider" />
+            </div>
+          </div>
+
+          <!-- Financial Sub-Cards -->
+          <div class="fin-cards-grid">
+            <!-- Mortgage Amortization -->
+            <div class="fin-card">
+              <h4 class="fin-card-title text-cyan">🏦 Mortgage Amortization</h4>
+              <div class="fin-row">
+                <span>Monthly Payment:</span>
+                <strong class="highlight-cyan" id="fMonthlyAmort">₱ 90,215.14</strong>
+              </div>
+              <div class="fin-row">
+                <span>Loan Principal (80%):</span>
+                <span id="fLoanPrincipal">₱ 11,634,750.75</span>
+              </div>
+              <div class="fin-row">
+                <span>Total Loan Interest:</span>
+                <span id="fTotalInterest">₱ 10,016,882.85</span>
+              </div>
+              <div class="fin-row">
+                <span>Total Loan Repayment:</span>
+                <span id="fTotalRepay">₱ 21,651,633.60</span>
+              </div>
+              <div class="fin-row">
+                <span>Min. Monthly Income (30% Rule):</span>
+                <span class="text-yellow" id="fMinIncome">₱ 300,717.13</span>
+              </div>
+            </div>
+
+            <!-- Closing Fees -->
+            <div class="fin-card">
+              <h4 class="fin-card-title text-purple">📑 Acquisition & Closing Fees</h4>
+              <div class="fin-row">
+                <span>Down Payment (20%):</span>
+                <span id="fDownAmount">₱ 2,908,687.69</span>
+              </div>
+              <div class="fin-row">
+                <span>Doc. Stamp Tax (DST 1.5%):</span>
+                <span id="fDstAmount">₱ 218,151.58</span>
+              </div>
+              <div class="fin-row">
+                <span>Local Transfer Tax (0.75%):</span>
+                <span id="fTransferTax">₱ 109,075.79</span>
+              </div>
+              <div class="fin-row">
+                <span>LRA Registration Fee (0.25%):</span>
+                <span id="fRegFee">₱ 36,358.60</span>
+              </div>
+              <div class="fin-row">
+                <span>Notarial & Legal (1.0%):</span>
+                <span id="fNotarialFee">₱ 145,434.38</span>
+              </div>
+              <div class="fin-row total-row">
+                <span>Total Upfront Cash Needed:</span>
+                <strong class="highlight-purple" id="fTotalCashOut">₱ 3,417,708.04</strong>
+              </div>
+            </div>
+
+            <!-- Investment Yield -->
+            <div class="fin-card">
+              <h4 class="fin-card-title text-emerald">📈 Rental & Investment Yield</h4>
+              <div class="fin-row">
+                <span>Est. Monthly Gross Rent:</span>
+                <strong class="highlight-emerald" id="fMonthlyRent">₱ 78,776.96</strong>
+              </div>
+              <div class="fin-row">
+                <span>Est. Annual Gross Rent:</span>
+                <span id="fAnnualRent">₱ 945,323.50</span>
+              </div>
+              <div class="fin-row">
+                <span>Gross Rental Yield:</span>
+                <span id="fTargetYield">6.5%</span>
+              </div>
+              <div class="fin-row">
+                <span>Capital Payback Period:</span>
+                <span id="fPaybackYears">15.4 Years</span>
+              </div>
+              <div class="fin-row">
+                <span>Net Monthly Cash Flow:</span>
+                <span id="fNetCashFlow">-₱ 11,438.18</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Capital Allocation Bar -->
+          <div class="alloc-section">
+            <h4 class="alloc-title">📊 Capital Allocation Breakdown</h4>
+            <div class="alloc-progress-bar">
+              <div class="bar-segment bar-principal" id="barPrincipal" style="width: 77%;"></div>
+              <div class="bar-segment bar-down" id="barDown" style="width: 19%;"></div>
+              <div class="bar-segment bar-closing" id="barClosing" style="width: 4%;"></div>
+            </div>
+            <div class="alloc-legend">
+              <span class="legend-item"><span class="dot dot-cyan"></span> Loan Principal (<span id="pctPrincipal">77%</span>)</span>
+              <span class="legend-item"><span class="dot dot-emerald"></span> Down Payment (<span id="pctDown">19%</span>)</span>
+              <span class="legend-item"><span class="dot dot-purple"></span> Closing Fees & Taxes (<span id="pctClosing">4%</span>)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 2: MODEL INSIGHTS & FEATURE IMPORTANCE -->
+      <div class="tab-content" id="tab-model" role="tabpanel">
+        <div class="card-inner">
+          <h3 class="tab-heading">🌲 Random Forest Regressor Interpretability</h3>
+          <p class="tab-desc">Empirical feature importance distribution derived from 100+ bagged decision trees trained on Philippine residential property listings.</p>
+
+          <div class="feature-chart-container">
+            <div class="chart-row">
+              <div class="chart-label">Location (Target Encoded)</div>
+              <div class="chart-bar-wrap"><div class="chart-bar" style="width: 62.06%; background: #38bdf8;"></div></div>
+              <div class="chart-pct">62.06%</div>
+            </div>
+            <div class="chart-row">
+              <div class="chart-label">Floor Area (m²)</div>
+              <div class="chart-bar-wrap"><div class="chart-bar" style="width: 24.78%; background: #0284c7;"></div></div>
+              <div class="chart-pct">24.78%</div>
+            </div>
+            <div class="chart-row">
+              <div class="chart-label">Land Area (m²)</div>
+              <div class="chart-bar-wrap"><div class="chart-bar" style="width: 7.74%; background: #0ea5e9;"></div></div>
+              <div class="chart-pct">7.74%</div>
+            </div>
+            <div class="chart-row">
+              <div class="chart-label">Longitude (°E Coordinates)</div>
+              <div class="chart-bar-wrap"><div class="chart-bar" style="width: 2.52%; background: #38bdf8;"></div></div>
+              <div class="chart-pct">2.52%</div>
+            </div>
+            <div class="chart-row">
+              <div class="chart-label">Latitude (°N Coordinates)</div>
+              <div class="chart-bar-wrap"><div class="chart-bar" style="width: 1.39%; background: #7dd3fc;"></div></div>
+              <div class="chart-pct">1.39%</div>
+            </div>
+            <div class="chart-row">
+              <div class="chart-label">Bathrooms Count</div>
+              <div class="chart-bar-wrap"><div class="chart-bar" style="width: 1.00%; background: #bae6fd;"></div></div>
+              <div class="chart-pct">1.00%</div>
+            </div>
+            <div class="chart-row">
+              <div class="chart-label">Bedrooms Count</div>
+              <div class="chart-bar-wrap"><div class="chart-bar" style="width: 0.52%; background: #e0f2fe;"></div></div>
+              <div class="chart-pct">0.52%</div>
+            </div>
+          </div>
+
+          <div class="model-cards-grid">
+            <div class="model-insight-card">
+              <h4 class="text-cyan">📍 Location Dominance (62.06%)</h4>
+              <p>Location accounts for over 62% of price variance, affirming that Philippine real estate is heavily anchored by localized geographic prestige and neighborhood convenience.</p>
+            </div>
+            <div class="model-insight-card">
+              <h4 class="text-emerald">📐 Structural Geometry (32.52%)</h4>
+              <p>Floor Area (24.78%) is the strongest structural feature, followed by Land Area (7.74%). Together with location, they account for over 94% of property valuation influence.</p>
+            </div>
+            <div class="model-insight-card">
+              <h4 class="text-purple">🎯 Log-Target Transformation</h4>
+              <p>Trained using <code>log1p(Price)</code> to normalize heavy positive skewness in real estate transactions, eliminating outlier distortions across high-value luxury tiers.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 3: GEOSPATIAL & NEIGHBORHOOD BENCHMARK -->
+      <div class="tab-content" id="tab-geo" role="tabpanel">
+        <div class="card-inner">
+          <h3 class="tab-heading">🗺️ Interactive Geospatial Mapping & Neighborhood Benchmark</h3>
+          <p class="tab-desc">Interactive geographic positioning and local listing distribution for the currently selected location.</p>
+
+          <div id="propertyMap" class="map-container"></div>
+
+          <div class="neighborhood-stats-section">
+            <h4 class="sub-heading">📊 Local Price Benchmark in <span id="geoLocName" class="highlight-cyan">San Antonio, Pasig</span></h4>
+            <div class="stats-grid">
+              <div class="stat-card">
+                <span class="stat-lbl">Sample Listings</span>
+                <span class="stat-val" id="statCount">12 listings</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-lbl">Lowest Listing</span>
+                <span class="stat-val" id="statMin">₱ 6,500,000.00</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-lbl">Median Listing</span>
+                <span class="stat-val highlight-emerald" id="statMedian">₱ 15,200,000.00</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-lbl">Highest Listing</span>
+                <span class="stat-val" id="statMax">₱ 35,000,000.00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 4: ACADEMIC SPECS & AUTHORS -->
+      <div class="tab-content" id="tab-specs" role="tabpanel">
+        <div class="card-inner">
+          <h3 class="tab-heading">📋 Academic Project & Research Methodology Specifications</h3>
+          <div class="specs-body">
+            <p><strong>Course & Section:</strong> CCMACLRL - COM243ML (Machine Learning)</p>
+            <p><strong>Course Instructor:</strong> Professor Ken Oliver Caparros</p>
+            <p><strong>Group Name:</strong> GROUP3</p>
+            <p><strong>Project Title:</strong> Property Retail Calculator - Residential Real Estate Price Estimation Using Structure And Geographic Variables</p>
+            
+            <div class="authors-grid">
+              <div class="author-card">
+                <strong>Ezekiel Christian Alcantara</strong>
+                <span>Pipeline & Feature Engineering</span>
+              </div>
+              <div class="author-card">
+                <strong>Genesis Navarro</strong>
+                <span>EDA & Statistical Analysis</span>
+              </div>
+              <div class="author-card">
+                <strong>Christian Jacob Suntay</strong>
+                <span>Model Training & 5-Fold CV</span>
+              </div>
+              <div class="author-card">
+                <strong>Jay Arre Talosig</strong>
+                <span>Deployment & UI Architecture</span>
+              </div>
+            </div>
+
+            <p class="specs-note">
+              <strong>Technical Protocol:</strong> In accordance with course guidelines prohibiting deep learning and AutoML, three traditional models (Linear Regression, Decision Tree Regressor, and Random Forest Regressor) were compared under strictly identical train/test splits (80/20) and 5-Fold cross-validation. Preprocessing transformers were fit strictly on the training partition to eliminate data leakage.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <p>Property Retail Calculator • GROUP3 Final Project • National University • Instructor: Prof. Ken Oliver Caparros</p>
+      <p class="footer-links">
+        <a href="https://github.com/flexyledger/GROUP3_ph-real-estate-price-prediction" target="_blank" rel="noopener">GitHub Repository</a> • 
+        <span>Netlify Ready</span> • 
+        <span>FastAPI Compatible</span>
+      </p>
+    </footer>
+  </div>
+
+  <!-- Leaflet Map JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <!-- Application JS -->
+  <script src="app.js"></script>
+</body>
+</html>

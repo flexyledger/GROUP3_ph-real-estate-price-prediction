@@ -1,0 +1,1001 @@
+{
+  "Alabang, Muntinlupa": {
+    "lat": 14.417977400000002,
+    "lon": 121.037608,
+    "count": 5,
+    "min_price": 4500000.0,
+    "median_price": 8900000.0,
+    "mean_price": 7880000.0,
+    "max_price": 10000000.0
+  },
+  "Alang-Alang, Mandaue": {
+    "lat": 10.9221743,
+    "lon": 124.0208544,
+    "count": 1,
+    "min_price": 5000000.0,
+    "median_price": 5000000.0,
+    "mean_price": 5000000.0,
+    "max_price": 5000000.0
+  },
+  "Alapan II-A, Imus": {
+    "lat": 14.4084872,
+    "lon": 120.9062254,
+    "count": 10,
+    "min_price": 1880600.0,
+    "median_price": 5486300.0,
+    "mean_price": 4710296.0,
+    "max_price": 7410000.0
+  },
+  "Almanza Uno, Las Pinas": {
+    "lat": 14.432491400000002,
+    "lon": 121.01405320000002,
+    "count": 7,
+    "min_price": 1833376.0,
+    "median_price": 2881668.0,
+    "mean_price": 3432248.285714286,
+    "max_price": 5526622.0
+  },
+  "Anabu II-A, Imus": {
+    "lat": 14.3841135,
+    "lon": 120.9356405,
+    "count": 2,
+    "min_price": 3000000.0,
+    "median_price": 3600000.0,
+    "mean_price": 3600000.0,
+    "max_price": 4200000.0
+  },
+  "Antipolo del Sur, Lipa": {
+    "lat": NaN,
+    "lon": 121.185,
+    "count": 9,
+    "min_price": 5036925.0,
+    "median_price": 7413780.0,
+    "mean_price": 7238048.555555556,
+    "max_price": 9540880.0
+  },
+  "Bagakay, Ozamiz": {
+    "lat": 8.14369,
+    "lon": 123.813471,
+    "count": 8,
+    "min_price": 850000.0,
+    "median_price": 3286520.0,
+    "mean_price": 3172604.875,
+    "max_price": 5157800.0
+  },
+  "Bagong Ilog, Pasig": {
+    "lat": 14.565391,
+    "lon": 121.06934,
+    "count": 4,
+    "min_price": 3900000.0,
+    "median_price": 5700000.0,
+    "mean_price": 5475000.0,
+    "max_price": 6600000.0
+  },
+  "Bagumbayan, Quezon City": {
+    "lat": 14.605196222222226,
+    "lon": 121.08227493298331,
+    "count": 18,
+    "min_price": 8990000.0,
+    "median_price": 14278110.0,
+    "mean_price": 12792606.555555556,
+    "max_price": 14612268.0
+  },
+  "Bakakeng Central, Baguio": {
+    "lat": 16.39936,
+    "lon": 120.58126399999998,
+    "count": 11,
+    "min_price": 3500000.0,
+    "median_price": 4600000.0,
+    "mean_price": 5545454.545454546,
+    "max_price": 9400000.0
+  },
+  "Banaybanay II, San Jose": {
+    "lat": 13.9179,
+    "lon": 121.102657,
+    "count": 1,
+    "min_price": 2500000.0,
+    "median_price": 2500000.0,
+    "mean_price": 2500000.0,
+    "max_price": 2500000.0
+  },
+  "Barangay 19-B, Davao": {
+    "lat": 7.0928915,
+    "lon": 125.6056916,
+    "count": 5,
+    "min_price": 4009821.0,
+    "median_price": 9696429.0,
+    "mean_price": 9711071.4,
+    "max_price": 16487500.0
+  },
+  "Barangka Ilaya, Mandaluyong": {
+    "lat": 14.571565,
+    "lon": 121.0483125,
+    "count": 8,
+    "min_price": 2378396.0,
+    "median_price": 5204452.0,
+    "mean_price": 5917521.25,
+    "max_price": 12700000.0
+  },
+  "Biclatan, General Trias": {
+    "lat": 14.2814,
+    "lon": 120.918211,
+    "count": 10,
+    "min_price": 2581630.0,
+    "median_price": 5692025.0,
+    "mean_price": 5619235.4,
+    "max_price": 8795130.0
+  },
+  "Biluso, Silang": {
+    "lat": 14.247941000000003,
+    "lon": 120.952854,
+    "count": 3,
+    "min_price": 2100000.0,
+    "median_price": 3000000.0,
+    "mean_price": 4566666.666666667,
+    "max_price": 8600000.0
+  },
+  "Buenavista I, General Trias": {
+    "lat": 14.321965,
+    "lon": 120.895878,
+    "count": 1,
+    "min_price": 3000000.0,
+    "median_price": 3000000.0,
+    "mean_price": 3000000.0,
+    "max_price": 3000000.0
+  },
+  "Bugtong Na Pulo, Lipa": {
+    "lat": 14.0042716,
+    "lon": 121.17058769999998,
+    "count": 10,
+    "min_price": 2000000.0,
+    "median_price": 4700000.0,
+    "mean_price": 4810000.0,
+    "max_price": 7900000.0
+  },
+  "Bulac, Santa Maria": {
+    "lat": 14.83466,
+    "lon": 121.33919,
+    "count": 5,
+    "min_price": 1160000.0,
+    "median_price": 1400000.0,
+    "mean_price": 1464000.0,
+    "max_price": 1760000.0
+  },
+  "Buli, Taal": {
+    "lat": 13.885834999999998,
+    "lon": 120.95509300000002,
+    "count": 13,
+    "min_price": 2134000.0,
+    "median_price": 5210000.0,
+    "mean_price": 5436538.461538462,
+    "max_price": 9753000.0
+  },
+  "Cabuco, Trece Martires": {
+    "lat": 14.2737173,
+    "lon": 120.8443843,
+    "count": 2,
+    "min_price": 1918427.0,
+    "median_price": 2004083.0,
+    "mean_price": 2004083.0,
+    "max_price": 2089739.0
+  },
+  "Calubcub II, San Juan": {
+    "lat": 13.740708,
+    "lon": 121.4280056,
+    "count": 5,
+    "min_price": 5700000.0,
+    "median_price": 10000000.0,
+    "mean_price": 9720000.0,
+    "max_price": 14100000.0
+  },
+  "Cansomoroy, Balamban": {
+    "lat": 10.47535,
+    "lon": 123.755596,
+    "count": 1,
+    "min_price": 6000000.0,
+    "median_price": 6000000.0,
+    "mean_price": 6000000.0,
+    "max_price": 6000000.0
+  },
+  "Carsadang Bago I, Imus": {
+    "lat": 14.4234269,
+    "lon": 120.92897459999999,
+    "count": 5,
+    "min_price": 5234791.0,
+    "median_price": 5234791.0,
+    "mean_price": 5234791.0,
+    "max_price": 5234791.0
+  },
+  "Caysio, Santa Maria": {
+    "lat": 14.843911999999998,
+    "lon": 120.96837599999999,
+    "count": 3,
+    "min_price": 4297800.0,
+    "median_price": 4297800.0,
+    "mean_price": 4297800.0,
+    "max_price": 4297800.0
+  },
+  "Cubao, Quezon City": {
+    "lat": 14.61777,
+    "lon": 121.0572,
+    "count": 2,
+    "min_price": 4100000.0,
+    "median_price": 4850000.0,
+    "mean_price": 4850000.0,
+    "max_price": 5600000.0
+  },
+  "Cupang Proper, Balanga": {
+    "lat": 14.666374999999999,
+    "lon": 120.54821999999999,
+    "count": 10,
+    "min_price": 2153000.0,
+    "median_price": 4719500.0,
+    "mean_price": 4975200.0,
+    "max_price": 8982000.0
+  },
+  "Cupang, Muntinlupa": {
+    "lat": 14.434668999999998,
+    "lon": 121.040194,
+    "count": 36,
+    "min_price": 2515625.0,
+    "median_price": 25296000.0,
+    "mean_price": 20242602.083333332,
+    "max_price": 40322000.0
+  },
+  "Darasa, Tanauan": {
+    "lat": 14.0661817,
+    "lon": 121.1567437,
+    "count": 3,
+    "min_price": 1995000.0,
+    "median_price": 2698000.0,
+    "mean_price": 2822666.6666666665,
+    "max_price": 3775000.0
+  },
+  "Diliman, Quezon City": {
+    "lat": 14.644873999999996,
+    "lon": 121.05059299999999,
+    "count": 12,
+    "min_price": 6000000.0,
+    "median_price": 10000000.0,
+    "mean_price": 9250000.0,
+    "max_price": 12200000.0
+  },
+  "Eastwood City, Quezon City": {
+    "lat": 14.60892,
+    "lon": 121.0798,
+    "count": 1,
+    "min_price": 3800000.0,
+    "median_price": 3800000.0,
+    "mean_price": 3800000.0,
+    "max_price": 3800000.0
+  },
+  "Eden, Mexico": {
+    "lat": 15.125835,
+    "lon": 120.680386,
+    "count": 6,
+    "min_price": 1900000.0,
+    "median_price": 4100000.0,
+    "mean_price": 3933333.3333333335,
+    "max_price": 5200000.0
+  },
+  "Ermita, Manila": {
+    "lat": 14.590525999999999,
+    "lon": 120.985482,
+    "count": 6,
+    "min_price": 4900000.0,
+    "median_price": 7500000.0,
+    "mean_price": 6633333.333333333,
+    "max_price": 7500000.0
+  },
+  "F.B Harisson, Pasay": {
+    "lat": 14.553229999999996,
+    "lon": 120.99022599999998,
+    "count": 10,
+    "min_price": 4468800.0,
+    "median_price": 7358400.0,
+    "mean_price": 9169440.0,
+    "max_price": 15803200.0
+  },
+  "Gibraltar, Baguio": {
+    "lat": 16.419598,
+    "lon": 120.626852,
+    "count": 9,
+    "min_price": 3300000.0,
+    "median_price": 6853000.0,
+    "mean_price": 7844444.444444444,
+    "max_price": 11312000.0
+  },
+  "Greenhills, San Juan": {
+    "lat": 14.600676,
+    "lon": 121.43876,
+    "count": 9,
+    "min_price": 3900000.0,
+    "median_price": 8800000.0,
+    "mean_price": 17823333.333333332,
+    "max_price": 37940000.0
+  },
+  "Halayhay, Tanza": {
+    "lat": 14.35989,
+    "lon": 120.822985,
+    "count": 3,
+    "min_price": 3000000.0,
+    "median_price": 3200000.0,
+    "mean_price": 3300000.0,
+    "max_price": 3700000.0
+  },
+  "Highway Hills, Mandaluyong": {
+    "lat": 14.578254999999999,
+    "lon": 121.052143,
+    "count": 73,
+    "min_price": 1962165.0,
+    "median_price": 7961511.0,
+    "mean_price": 9441179.767123288,
+    "max_price": 16974060.0
+  },
+  "Hippodromo, Cebu": {
+    "lat": 10.315222499999999,
+    "lon": 123.905925545365,
+    "count": 4,
+    "min_price": 8929270.0,
+    "median_price": 13529571.0,
+    "mean_price": 14541245.75,
+    "max_price": 22176571.0
+  },
+  "Hulo, Mandaluyong": {
+    "lat": 14.571604,
+    "lon": 121.031359,
+    "count": 1,
+    "min_price": 7500000.0,
+    "median_price": 7500000.0,
+    "mean_price": 7500000.0,
+    "max_price": 7500000.0
+  },
+  "Inosloban, Lipa": {
+    "lat": 13.9775271,
+    "lon": 121.1701226,
+    "count": 8,
+    "min_price": 2800000.0,
+    "median_price": 5150000.0,
+    "mean_price": 4887500.0,
+    "max_price": 6600000.0
+  },
+  "Isabang, Tayabas": {
+    "lat": 13.962774999999999,
+    "lon": 121.564527,
+    "count": 10,
+    "min_price": 2094000.0,
+    "median_price": 4719000.0,
+    "mean_price": 5475700.0,
+    "max_price": 11553000.0
+  },
+  "Kaytitinga III, Alfonso": {
+    "lat": 14.0971303,
+    "lon": 120.8354138,
+    "count": 2,
+    "min_price": 5400000.0,
+    "median_price": 6150000.0,
+    "mean_price": 6150000.0,
+    "max_price": 6900000.0
+  },
+  "Laiya-Aplaya, San Juan": {
+    "lat": 13.691466,
+    "lon": 121.379905,
+    "count": 1,
+    "min_price": 15000000.0,
+    "median_price": 15000000.0,
+    "mean_price": 15000000.0,
+    "max_price": 15000000.0
+  },
+  "Langkaan I, Dasmarinas": {
+    "lat": 14.285456000000002,
+    "lon": 120.950177,
+    "count": 3,
+    "min_price": 4300000.0,
+    "median_price": 4378246.0,
+    "mean_price": 4723902.333333333,
+    "max_price": 5493461.0
+  },
+  "Libertad, Pasay": {
+    "lat": 14.547436,
+    "lon": 120.998485,
+    "count": 5,
+    "min_price": 4500000.0,
+    "median_price": 14500000.0,
+    "mean_price": 10980000.0,
+    "max_price": 15500000.0
+  },
+  "Longos, Malolos": {
+    "lat": 14.874398600000003,
+    "lon": 120.79730620000004,
+    "count": 15,
+    "min_price": 2338000.0,
+    "median_price": 5607000.0,
+    "mean_price": 5535933.333333333,
+    "max_price": 10151000.0
+  },
+  "Loyola Heights, Quezon City": {
+    "lat": 14.640624,
+    "lon": 121.076504,
+    "count": 3,
+    "min_price": 1916509.0,
+    "median_price": 2131988.0,
+    "mean_price": 2619943.3333333335,
+    "max_price": 3811333.0
+  },
+  "Lumil, Silang": {
+    "lat": 14.182865625000002,
+    "lon": 121.05258281249999,
+    "count": 16,
+    "min_price": 4460000.0,
+    "median_price": 8163000.0,
+    "mean_price": 7545155.0,
+    "max_price": 10592480.0
+  },
+  "Ma-A, Davao": {
+    "lat": 7.086748900000002,
+    "lon": 125.58402989999998,
+    "count": 14,
+    "min_price": 3702460.0,
+    "median_price": 8535732.0,
+    "mean_price": 6647647.0,
+    "max_price": 8645982.0
+  },
+  "Mabolo, Cebu": {
+    "lat": 10.31581,
+    "lon": 123.918231,
+    "count": 2,
+    "min_price": 3700000.0,
+    "median_price": 3750000.0,
+    "mean_price": 3750000.0,
+    "max_price": 3800000.0
+  },
+  "Mactan, Lapu-Lapu": {
+    "lat": 10.3051555,
+    "lon": 124.0112408,
+    "count": 5,
+    "min_price": 8730355.0,
+    "median_price": 9033375.0,
+    "mean_price": 10646902.0,
+    "max_price": 15916180.0
+  },
+  "Maitim 2nd West, Tagaytay": {
+    "lat": 14.119975,
+    "lon": 120.95476,
+    "count": 2,
+    "min_price": 6900000.0,
+    "median_price": 7400000.0,
+    "mean_price": 7400000.0,
+    "max_price": 7900000.0
+  },
+  "Majada Labas, Calamba": {
+    "lat": 14.196755000000001,
+    "lon": 121.104962,
+    "count": 3,
+    "min_price": 1366658.0,
+    "median_price": 1840805.0,
+    "mean_price": 2036757.6666666667,
+    "max_price": 2902810.0
+  },
+  "Malate, Manila": {
+    "lat": 14.570199,
+    "lon": 120.991585,
+    "count": 4,
+    "min_price": 2226263.0,
+    "median_price": 4822374.5,
+    "mean_price": 4623707.75,
+    "max_price": 6623819.0
+  },
+  "Mambog I, Bacoor": {
+    "lat": 14.4251071,
+    "lon": 120.9486663,
+    "count": 2,
+    "min_price": 4715100.0,
+    "median_price": 5538150.0,
+    "mean_price": 5538150.0,
+    "max_price": 6361200.0
+  },
+  "Mampalasan, Binan": {
+    "lat": 14.2923053,
+    "lon": 121.0810444,
+    "count": 4,
+    "min_price": 7380000.0,
+    "median_price": 18012500.0,
+    "mean_price": 16336250.0,
+    "max_price": 21940000.0
+  },
+  "Mandalagan, Bacolod": {
+    "lat": 10.6877926,
+    "lon": 122.9747478,
+    "count": 4,
+    "min_price": 3678000.0,
+    "median_price": 4856000.0,
+    "mean_price": 4644250.0,
+    "max_price": 5187000.0
+  },
+  "Manggahan, General Trias": {
+    "lat": 14.296605,
+    "lon": 120.904361,
+    "count": 2,
+    "min_price": 4730620.0,
+    "median_price": 5139490.0,
+    "mean_price": 5139490.0,
+    "max_price": 5548360.0
+  },
+  "Manggahan, Pasig": {
+    "lat": 14.601887,
+    "lon": 121.09369799999999,
+    "count": 11,
+    "min_price": 3300000.0,
+    "median_price": 4800000.0,
+    "mean_price": 4908181.818181818,
+    "max_price": 6600000.0
+  },
+  "Manibaug Paralaya, Porac": {
+    "lat": 15.119766999999998,
+    "lon": 120.56071399999999,
+    "count": 13,
+    "min_price": 2624075.0,
+    "median_price": 6628665.0,
+    "mean_price": 6348368.153846154,
+    "max_price": 9440500.0
+  },
+  "McKinley Hill, Taguig": {
+    "lat": 14.54595,
+    "lon": 121.0494,
+    "count": 4,
+    "min_price": 10000000.0,
+    "median_price": 14050000.0,
+    "mean_price": 15275000.0,
+    "max_price": 23000000.0
+  },
+  "Merville, Paranaque": {
+    "lat": 14.499387,
+    "lon": 121.025633,
+    "count": 9,
+    "min_price": 4700000.0,
+    "median_price": 7500000.0,
+    "mean_price": 7897777.777777778,
+    "max_price": 11700000.0
+  },
+  "Moog, Laguindingan": {
+    "lat": 8.609045,
+    "lon": 124.468733,
+    "count": 5,
+    "min_price": 23100000.0,
+    "median_price": 29150000.0,
+    "mean_price": 29480000.0,
+    "max_price": 38500000.0
+  },
+  "New Manila, Quezon City": {
+    "lat": 14.620294909090909,
+    "lon": 121.02816479999998,
+    "count": 15,
+    "min_price": 6785600.0,
+    "median_price": 7700000.0,
+    "mean_price": 8112518.666666667,
+    "max_price": 12200000.0
+  },
+  "North Reclamation Area, Cebu": {
+    "lat": 10.308418899999998,
+    "lon": 123.91576089999998,
+    "count": 10,
+    "min_price": 4690752.0,
+    "median_price": 6940000.0,
+    "mean_price": 7899982.6,
+    "max_price": 13366838.0
+  },
+  "Novaliches, Quezon City": {
+    "lat": 14.681550000000001,
+    "lon": 121.0198,
+    "count": 19,
+    "min_price": 3113220.0,
+    "median_price": 6363100.0,
+    "mean_price": 6646664.2105263155,
+    "max_price": 7802700.0
+  },
+  "Oranbo, Pasig": {
+    "lat": 14.575813468085107,
+    "lon": 121.06431427659577,
+    "count": 141,
+    "min_price": 10359000.0,
+    "median_price": 22061000.0,
+    "mean_price": 24060780.14184397,
+    "max_price": 89146000.0
+  },
+  "Ortigas CBD, Pasig": {
+    "lat": 14.583948304635765,
+    "lon": 121.05987190728477,
+    "count": 151,
+    "min_price": 6320000.0,
+    "median_price": 12196800.0,
+    "mean_price": 14506843.397350993,
+    "max_price": 50085329.0
+  },
+  "Pag-Ibig Sa Nayon, Quezon City": {
+    "lat": 14.646511,
+    "lon": 120.996952,
+    "count": 4,
+    "min_price": 9600000.0,
+    "median_price": 13200000.0,
+    "mean_price": 14425000.0,
+    "max_price": 21700000.0
+  },
+  "Paligsahan, Quezon City": {
+    "lat": 14.639806899999996,
+    "lon": 121.00888734999998,
+    "count": 20,
+    "min_price": 2963760.0,
+    "median_price": 5310000.0,
+    "mean_price": 5040984.0,
+    "max_price": 7123896.0
+  },
+  "Palingon, Calamba": {
+    "lat": 14.214945,
+    "lon": 121.186024,
+    "count": 1,
+    "min_price": 4050700.0,
+    "median_price": 4050700.0,
+    "mean_price": 4050700.0,
+    "max_price": 4050700.0
+  },
+  "Palo-Alto, Calamba": {
+    "lat": 14.1888283,
+    "lon": 121.11033080000001,
+    "count": 10,
+    "min_price": 2918180.0,
+    "median_price": 4767000.0,
+    "mean_price": 4844318.0,
+    "max_price": 5770000.0
+  },
+  "Pasay Rotonda, Pasay": {
+    "lat": 14.53747,
+    "lon": 120.99208480000001,
+    "count": 7,
+    "min_price": 7900000.0,
+    "median_price": 11500000.0,
+    "mean_price": 10732151.714285715,
+    "max_price": 14900000.0
+  },
+  "Paso de Blas, Valenzuela": {
+    "lat": 14.704998599999998,
+    "lon": 120.98518,
+    "count": 6,
+    "min_price": 2050000.0,
+    "median_price": 3010000.0,
+    "mean_price": 3058333.3333333335,
+    "max_price": 4050000.0
+  },
+  "Pasong Camachile I, General Trias": {
+    "lat": 14.373179999999998,
+    "lon": 120.89661299999996,
+    "count": 12,
+    "min_price": 1880600.0,
+    "median_price": 5486300.0,
+    "mean_price": 4928493.333333333,
+    "max_price": 7410000.0
+  },
+  "Pinagbuhatan, Pasig": {
+    "lat": 14.555535,
+    "lon": 121.090095,
+    "count": 8,
+    "min_price": 3297501.0,
+    "median_price": 5008864.0,
+    "mean_price": 4367102.875,
+    "max_price": 5008864.0
+  },
+  "Platero, Binan": {
+    "lat": 14.322713,
+    "lon": 121.0892395,
+    "count": 2,
+    "min_price": 3000000.0,
+    "median_price": 3600000.0,
+    "mean_price": 3600000.0,
+    "max_price": 4200000.0
+  },
+  "Punta, Calamba": {
+    "lat": 14.1766984375,
+    "lon": 121.12242542476375,
+    "count": 16,
+    "min_price": 1562440.0,
+    "median_price": 3025240.0,
+    "mean_price": 4324123.75,
+    "max_price": 8557360.0
+  },
+  "Quezon Hill Proper, Baguio": {
+    "lat": 16.4145653,
+    "lon": 120.5814088,
+    "count": 5,
+    "min_price": 5940000.0,
+    "median_price": 9253088.0,
+    "mean_price": 8938617.6,
+    "max_price": 11780000.0
+  },
+  "Roxas Boulevard, Manila": {
+    "lat": 14.551476,
+    "lon": 120.9895887,
+    "count": 4,
+    "min_price": 4049000.0,
+    "median_price": 5663000.0,
+    "mean_price": 8388850.0,
+    "max_price": 18180400.0
+  },
+  "Sabang, Naic": {
+    "lat": 14.319351,
+    "lon": 120.799295,
+    "count": 4,
+    "min_price": 40000000.0,
+    "median_price": 40000000.0,
+    "mean_price": 50000000.0,
+    "max_price": 80000000.0
+  },
+  "Salcedo Village, Makati": {
+    "lat": 14.5596699,
+    "lon": 121.0206028,
+    "count": 1,
+    "min_price": 52000000.0,
+    "median_price": 52000000.0,
+    "mean_price": 52000000.0,
+    "max_price": 52000000.0
+  },
+  "Sambag II, Cebu": {
+    "lat": 10.305839500000001,
+    "lon": 123.89085670000003,
+    "count": 13,
+    "min_price": 2810000.0,
+    "median_price": 2810000.0,
+    "mean_price": 2810000.0,
+    "max_price": 2810000.0
+  },
+  "Sampaloc II, Dasmarinas": {
+    "lat": 14.287385,
+    "lon": 120.964753,
+    "count": 4,
+    "min_price": 5692980.0,
+    "median_price": 6282115.0,
+    "mean_price": 6967865.75,
+    "max_price": 9614253.0
+  },
+  "San Agustin I, Dasmarinas": {
+    "lat": 14.304975000000002,
+    "lon": 120.94411099999996,
+    "count": 21,
+    "min_price": 2239999.0,
+    "median_price": 4100000.0,
+    "mean_price": 4434237.761904762,
+    "max_price": 8473000.0
+  },
+  "San Antonio, Davao": {
+    "lat": 7.095857,
+    "lon": 125.63047500000002,
+    "count": 17,
+    "min_price": 7320000.0,
+    "median_price": 7320000.0,
+    "mean_price": 8736470.588235294,
+    "max_price": 10760000.0
+  },
+  "San Antonio, Pasig": {
+    "lat": 14.588337725000002,
+    "lon": 121.05999850000002,
+    "count": 120,
+    "min_price": 25284000.0,
+    "median_price": 31632000.0,
+    "mean_price": 35353600.0,
+    "max_price": 100000000.0
+  },
+  "San Antonio, Santo Tomas": {
+    "lat": 14.12405,
+    "lon": 121.17277,
+    "count": 2,
+    "min_price": 2464168.0,
+    "median_price": 2724452.5,
+    "mean_price": 2724452.5,
+    "max_price": 2984737.0
+  },
+  "San Francisco, Binan": {
+    "lat": 14.3336384,
+    "lon": 121.05555769999998,
+    "count": 9,
+    "min_price": 5600000.0,
+    "median_price": 8100000.0,
+    "mean_price": 10977777.777777778,
+    "max_price": 20000000.0
+  },
+  "San Juan, Cainta": {
+    "lat": 14.583361999999997,
+    "lon": 121.130727,
+    "count": 7,
+    "min_price": 3740000.0,
+    "median_price": 5200000.0,
+    "mean_price": 4691428.571428572,
+    "max_price": 5600000.0
+  },
+  "San Nicolas, San Fernando": {
+    "lat": 15.16305,
+    "lon": 120.729066,
+    "count": 1,
+    "min_price": 68160000.0,
+    "median_price": 68160000.0,
+    "mean_price": 68160000.0,
+    "max_price": 68160000.0
+  },
+  "San Sebastian, Kawit": {
+    "lat": 14.418511200000001,
+    "lon": 120.89896200000001,
+    "count": 10,
+    "min_price": 1880600.0,
+    "median_price": 5486300.0,
+    "mean_price": 4710896.0,
+    "max_price": 7410000.0
+  },
+  "Santa Ana, Manila": {
+    "lat": 14.5822048,
+    "lon": 121.0135541,
+    "count": 4,
+    "min_price": 5028452.0,
+    "median_price": 6522096.0,
+    "mean_price": 6897395.0,
+    "max_price": 9516936.0
+  },
+  "Santo Nino, Binan": {
+    "lat": 14.3268282,
+    "lon": 121.0857856,
+    "count": 3,
+    "min_price": 4800000.0,
+    "median_price": 5300000.0,
+    "mean_price": 5133333.333333333,
+    "max_price": 5300000.0
+  },
+  "Santo Tomas Proper, Baguio": {
+    "lat": 16.384875,
+    "lon": 120.586268,
+    "count": 1,
+    "min_price": 8000000.0,
+    "median_price": 8000000.0,
+    "mean_price": 8000000.0,
+    "max_price": 8000000.0
+  },
+  "Sapang Palay, San Jose del Monte": {
+    "lat": 14.8450503,
+    "lon": 121.0612785,
+    "count": 9,
+    "min_price": 2313000.0,
+    "median_price": 4516000.0,
+    "mean_price": 4811777.777777778,
+    "max_price": 8407000.0
+  },
+  "Sasa, Davao": {
+    "lat": 7.128006000000001,
+    "lon": 125.648968,
+    "count": 5,
+    "min_price": 2950000.0,
+    "median_price": 3010000.0,
+    "mean_price": 2986000.0,
+    "max_price": 3010000.0
+  },
+  "Tabun, Mabalacat": {
+    "lat": 15.25276,
+    "lon": 120.594401,
+    "count": 3,
+    "min_price": 44504320.0,
+    "median_price": 92000000.0,
+    "mean_price": 77363200.0,
+    "max_price": 95585280.0
+  },
+  "Tagkawayan": {
+    "lat": 14.1218646,
+    "lon": 122.4994517,
+    "count": 1,
+    "min_price": 87900000.0,
+    "median_price": 87900000.0,
+    "mean_price": 87900000.0,
+    "max_price": 87900000.0
+  },
+  "Talaga, Capas": {
+    "lat": 15.381150000000002,
+    "lon": 120.59054100000002,
+    "count": 7,
+    "min_price": 1900000.0,
+    "median_price": 2800000.0,
+    "mean_price": 3457142.8571428573,
+    "max_price": 8300000.0
+  },
+  "Talamban, Cebu": {
+    "lat": 10.36171,
+    "lon": 123.91137400000001,
+    "count": 7,
+    "min_price": 2926950.0,
+    "median_price": 8000000.0,
+    "mean_price": 10176707.142857144,
+    "max_price": 19200000.0
+  },
+  "Talon Uno, Las Pinas": {
+    "lat": 14.446596,
+    "lon": 120.987165,
+    "count": 5,
+    "min_price": 2600000.0,
+    "median_price": 2600000.0,
+    "mean_price": 4160000.0,
+    "max_price": 6500000.0
+  },
+  "Tamiao, Compostela": {
+    "lat": 10.44226,
+    "lon": 123.994411,
+    "count": 4,
+    "min_price": 2400000.0,
+    "median_price": 4200000.0,
+    "mean_price": 3775000.0,
+    "max_price": 4300000.0
+  },
+  "Tanauan, Tanza": {
+    "lat": 14.292781,
+    "lon": 120.828878,
+    "count": 2,
+    "min_price": 3587010.0,
+    "median_price": 3587010.0,
+    "mean_price": 3587010.0,
+    "max_price": 3587010.0
+  },
+  "Tapia, General Trias": {
+    "lat": 14.35507,
+    "lon": 120.876425,
+    "count": 1,
+    "min_price": 1935600.0,
+    "median_price": 1935600.0,
+    "mean_price": 1935600.0,
+    "max_price": 1935600.0
+  },
+  "Tawason, Mandaue": {
+    "lat": 10.38246,
+    "lon": 123.925415,
+    "count": 2,
+    "min_price": 13400000.0,
+    "median_price": 13400000.0,
+    "mean_price": 13400000.0,
+    "max_price": 13400000.0
+  },
+  "Tipolo, Mandaue": {
+    "lat": 10.3299464,
+    "lon": 123.9275793,
+    "count": 1,
+    "min_price": 21000000.0,
+    "median_price": 21000000.0,
+    "mean_price": 21000000.0,
+    "max_price": 21000000.0
+  },
+  "Ugong, Pasig": {
+    "lat": 14.588825938931299,
+    "lon": 121.07901777099234,
+    "count": 262,
+    "min_price": 8151000.0,
+    "median_price": 16076000.0,
+    "mean_price": 17972225.190839693,
+    "max_price": 56507000.0
+  },
+  "Valle Cruz, Cabanatuan": {
+    "lat": 15.47877,
+    "lon": 120.995348,
+    "count": 5,
+    "min_price": 3800000.0,
+    "median_price": 4700000.0,
+    "mean_price": 4820000.0,
+    "max_price": 5700000.0
+  },
+  "Wack-Wack Greenhills, Mandaluyong": {
+    "lat": 14.592173,
+    "lon": 121.05333300000002,
+    "count": 14,
+    "min_price": 4746044.0,
+    "median_price": 14041254.5,
+    "mean_price": 14356365.5,
+    "max_price": 30900184.0
+  },
+  "Zapatera, Cebu": {
+    "lat": 10.305725,
+    "lon": 123.90499300000002,
+    "count": 5,
+    "min_price": 3199000.0,
+    "median_price": 5029302.0,
+    "mean_price": 5300198.0,
+    "max_price": 8983740.0
+  }
+}
